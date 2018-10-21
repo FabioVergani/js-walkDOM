@@ -36,11 +36,11 @@ const walk=d=>{
 					storeNext(p in o,o,p);
 					exist=p+':nth('+nth[depth]+')'
 				};
-				//§
+				//
 
 				console.log(ascend?'↸':(descend?'⇲':'⇢'),depth,'\t'.repeat(depth),exist);
 
-				//§
+				//
 				ascend=false;
 				if(descend=exist=((next=(mem=next).firstChild)!==null)){
 					const i=++depth;
@@ -70,9 +70,9 @@ const walk=d=>{
 				}
 			}while(exist);
 			console.groupEnd();
-			//§
+			//
 			depth=next=mem=exist=branch=null;
-			//§
+			//
 			console.group('found:');
 				mem=[
 					'UNKNOWN',//:0
