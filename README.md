@@ -5,7 +5,6 @@ const walk=d=>{
 	if(dE!==null){
 		const w=d.defaultView,console=w.console,blankLines=/^\s*$(?:\r\n?|\n)/gm;
 		const types=[],tags={},nth=[1];
-		
 		const storeNext=(x,o,i)=>{
 			const e=next;
 			if(x){
@@ -15,15 +14,12 @@ const walk=d=>{
 				o[i]=[e]
 			}
 		};
-		
-		let depth=0,next=dE,mem=dE,exist=true,ascend=false,descend=false;
-		
+		let depth=0,next=dE,mem=dE,exist=true,ascend=false,descend=false;		
 		console.group('walked:');
 			console.group('dom:');
 			do{
 				const type=next.nodeType;//,branch=next.parentElement
-				storeNext(type<types.length,types,type);
-				
+				storeNext(type<types.length,types,type);	
 				if(type!==1){
 					if(type!==3){//0,2,4,5,6,7,8,9,10,11,12
 						exist=next;
@@ -35,11 +31,7 @@ const walk=d=>{
 					storeNext(p in o,o,p);
 					exist=p+':nth('+nth[depth]+')'
 				};
-				
-
 				console.log(ascend?'↸':(descend?'⇲':'⇢'),depth,'\t'.repeat(depth),exist);
-
-				//
 				ascend=false;
 				if(descend=exist=((next=(mem=next).firstChild)!==null)){
 					const i=++depth;
